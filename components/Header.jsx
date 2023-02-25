@@ -35,22 +35,18 @@ export default function Header() {
               </Link>
             </div>
 
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav mb-2 mb-lg-0 ms-auto">
+            <div className="collapse navbar-collapse">
+              {/* <ul className="navbar-nav mb-2 mb-lg-0 ms-auto">
                 {[
                   { href: "/", label: "Home" },
                   { href: "/feed", label: "Feed" },
                   { href: "/guestbook", label: "Guestbook" },
-                  { href: "/friends", label: "Friends" },
                   { href: "/about", label: "About Us" },
                 ].map(({ href, label }, index) => (
                   <li className="nav-item" key={index}>
                     <Link
                       href={href}
-                      className={`nav-link rounded-2 px-4 py-1 ${
+                      className={`nav-link text-light rounded-3 px-4 py-1 ${
                         activeButton === label ? "bg-nav" : ""
                       }`}
                       onClick={() => handleNavClick(label)}
@@ -59,7 +55,7 @@ export default function Header() {
                     </Link>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
           </div>
         </nav>

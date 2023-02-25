@@ -1,9 +1,9 @@
-import Overview from "@/components/Overview";
+import OverviewMd from "@/components/OverviewMd";
 
 export default function Home() {
   return (
     <>
-      <Overview />
+      <OverviewMd />
     </>
   );
 }

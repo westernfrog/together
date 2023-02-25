@@ -37,7 +37,7 @@ export default function ButtonArea(params) {
             }`}
             onClick={() => handleButtonClick("three")}
           >
-            Newbies
+            Account
           </button>
         </Link>
       </div>
