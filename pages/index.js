@@ -1,9 +1,9 @@
-import OverviewMd from "@/components/OverviewMd";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
-      <OverviewMd />
+      <Footer />
     </>
   );
 }
