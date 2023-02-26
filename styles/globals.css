@@ -13,6 +13,9 @@ body {
   background: radial-gradient(circle at center, #764af1, #6f38c5);
   box-shadow: 0 0 10px 0.2px #444 !important;
 }
+.bg-header {
+  background: radial-gradient(circle at top left, #111, #121212);
+}
 .fs-8 {
   font-size: 12px;
 }

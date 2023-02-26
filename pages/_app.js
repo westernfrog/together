@@ -2,15 +2,15 @@ import Header from "@/components/Header";
 import "@/styles/globals.css";
 import Script from "next/script";
 import Head from "next/head";
-import OverviewLg from "@/components/OverviewLg";
 import OverviewMd from "@/components/OverviewMd";
+import Overview from "@/components/Overview";
 
 export default function App({ Component, pageProps }) {
   return (
     <>
       <Header />
-      <OverviewLg />
       <OverviewMd />
+      <Overview />
       <Head>
         <title>Together</title>
         <meta
@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
           rel="icon"
-          href="https://cdn-icons-png.flaticon.com/512/3154/3154472.png"
+          href="https://cdn-icons-png.flaticon.com/512/2219/2219962.png"
         />
       </Head>
       <Script

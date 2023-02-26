@@ -1,18 +1,18 @@
 import Link from "next/link";
-import { useState } from "react";
+// import { useState } from "react";
 
 export default function Header() {
-  const [activeButton, setActiveButton] = useState("Home");
+  // const [activeButton, setActiveButton] = useState("Home");
 
-  const handleNavClick = (label) => {
-    setActiveButton(label);
-  };
+  // const handleNavClick = (label) => {
+  //   setActiveButton(label);
+  // };
 
   return (
     <>
-      <div className="sticky-top">
+      <div className="sticky-top bg-header">
         <nav className="container navbar navbar-expand-lg navbar-dark">
-          <div className="container-fluid py-2 px-0 mx-3">
+          <div className="container-fluid pt-2 px-0 mx-3">
             <Link className="navbar-brand text-dancing fs-2" href="/">
               Together
             </Link>
