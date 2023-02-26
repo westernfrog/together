@@ -10,9 +10,9 @@ export default function Header() {
 
   return (
     <>
-      <div className="sticky-top bg-header">
+      <div className="bg-header">
         <nav className="container navbar navbar-expand-lg navbar-dark">
-          <div className="container-fluid pt-2 px-0 mx-3">
+          <div className="container-fluid pt-3 px-0 mx-3">
             <Link className="navbar-brand text-dancing fs-2" href="/">
               Together
             </Link>

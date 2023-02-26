@@ -92,3 +92,7 @@ a {
   border: none;
   border-radius: 10px;
 }
+.list-scroll {
+  height: calc(100vh - 220px);
+  overflow-y: scroll;
+}

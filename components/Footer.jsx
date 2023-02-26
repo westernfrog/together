@@ -12,7 +12,7 @@ export default function Footer() {
     <>
       <footer className="container">
         <div className="text-center text-muted lh-1">
-          <p className="mb-2">Made with ❣️ in India</p>
+          <p className="mb-2">Made with 💜 in India</p>
           <p>&copy; {newYear} • Together</p>
         </div>
       </footer>

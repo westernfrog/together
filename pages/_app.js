@@ -1,16 +1,17 @@
-import Header from "@/components/Header";
 import "@/styles/globals.css";
 import Script from "next/script";
 import Head from "next/head";
 import OverviewMd from "@/components/OverviewMd";
 import Overview from "@/components/Overview";
+import Header from "@/components/Header";
 
 export default function App({ Component, pageProps }) {
   return (
     <>
       <Header />
-      <OverviewMd />
       <Overview />
+      <OverviewMd />
+
       <Head>
         <title>Together</title>
         <meta
