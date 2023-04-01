@@ -100,9 +100,10 @@ export default function Post(props) {
         <div class="card-body p-3 p-lg-4">
           <h5 class="card-title d-flex align-items-center justify-content-between">
             <User
-              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              text={props.name}
               name={props.name}
               description={props.username}
+              color={"gradient"}
               className="ps-0"
             />
 
@@ -174,10 +175,10 @@ export default function Post(props) {
                     <div class="card-body">
                       <h6 class="card-title">
                         <User
-                          src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                          size={"sm"}
+                          color={"gradient"}
                           name={c.author}
                           description={c.username}
-                          size="sm"
                           className="ps-0"
                         />
                       </h6>

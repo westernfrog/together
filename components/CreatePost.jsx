@@ -49,12 +49,12 @@ export default function CreatePost(props) {
               htmlFor="exampleFormControlTextarea1"
               className="form-label text-dm"
             >
-              Share your thoughts!
+              Share your thoughts or ask for any answers!
             </label>
             <textarea
               className="form-control rounded-4 border-0 shadow text-white text-dm"
               id="exampleFormControlTextarea1"
-              rows="6"
+              rows="4"
               placeholder="Your Message! ✨"
               value={text}
               onChange={handleFormChange}

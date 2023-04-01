@@ -100,6 +100,7 @@ export default function SuggestedCard(props) {
                   squared
                   bordered
                   size="lg"
+                  color={"gradient"}
                   text={user.name}
                   name={user.name}
                   description={user.username}
