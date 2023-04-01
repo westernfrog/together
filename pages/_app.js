@@ -45,6 +45,7 @@ export default function App({ Component, pageProps }) {
     <>
       <div className="container vh-100">
         {shouldRenderHeader && <Header email={email} logout={logout} />}
+
         <Head>
           <title>Together</title>
           <meta

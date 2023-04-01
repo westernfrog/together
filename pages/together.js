@@ -105,12 +105,14 @@ export default function Together() {
           {posts.map((post, index) => (
             <Post
               key={index}
+              index={index}
               name={post.author}
               username={post.username}
               text={post.text}
               id={post._id}
               likes={post.likes}
               handleLike={handleLike}
+              createdAt={post.createdAt}
             />
           ))}
         </div>

@@ -94,10 +94,22 @@ export default function Post(props) {
     setNumPosts(numPosts + 2);
   };
 
+  const options = {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  };
+
+  console.log(posts.map((post) => post.comments.length > 0));
+
+  const hasComments = posts.map((post) => post.comments.length > 0);
   return (
     <>
       <div class="card my-5 bg-grey rounded-4" key={props.key}>
-        <div class="card-body p-3 p-lg-4">
+        <div class="card-body px-3 px-lg-4">
           <h5 class="card-title d-flex align-items-center justify-content-between">
             <User
               text={props.name}
@@ -106,33 +118,59 @@ export default function Post(props) {
               color={"gradient"}
               className="ps-0"
             />
-
-            <Button
-              auto
-              light
-              size={"lg"}
-              className="pe-0"
-              onPress={() => {
-                props.handleLike(props.id, props.likes);
-                handleRefresh();
-              }}
-            >
-              <i
-                class={`fa-solid fa-heart fa-lg ${
-                  props.likes.includes(username) ? "text-danger" : "text-white"
-                }`}
-              ></i>
-              <span className="ms-3 text-dm fw-bold text-white">
+            <div className="">
+              <Button
+                auto
+                light
+                rounded
+                size={"lg"}
+                className="px-1"
+                onPress={() => {
+                  props.handleLike(props.id, props.likes);
+                  handleRefresh();
+                }}
+              >
+                <i
+                  class={`fa-solid fa-heart ${
+                    props.likes.includes(username)
+                      ? "text-danger"
+                      : "text-white"
+                  }`}
+                ></i>
+              </Button>
+              <div className="text-dm fw-bold text-white fs-8 text-center">
                 {props.likes.length}
-              </span>
-            </Button>
+              </div>
+            </div>
           </h5>
 
           <p class="card-text">{props.text}</p>
-          <p className="card-text text-muted fs-8">at 3:17 PM March 31, 2023</p>
+          <p className="card-text text-muted fs-8">
+            on {new Date(props.createdAt).toLocaleDateString("en-US", options)}
+          </p>
         </div>
         <div className="card-footer p-3 p-lg-4">
-          <p>Comments 📭</p>
+          <div className="d-flex align-items-center justify-content-between">
+            <p>Comments 📭</p>
+
+            {hasComments[props.index] ? (
+              <Button
+                auto
+                flat
+                color={"secondary"}
+                size={"xs"}
+                className="text-dm mb-3"
+                data-bs-toggle="collapse"
+                data-bs-target={`#comments-${props.id}`}
+              >
+                View comments
+              </Button>
+            ) : (
+              <Button auto flat disabled size={"xs"} className="text-dm mb-3">
+                No comments yet
+              </Button>
+            )}
+          </div>
 
           <form
             onSubmit={(e) => {
@@ -162,13 +200,14 @@ export default function Post(props) {
               📫
             </Button>
           </form>
-          {postComments[props.id] &&
-            postComments[props.id].map((comment) =>
+
+          <div class="collapse" id={`comments-${props.id}`}>
+            {postComments[props.id]?.map((comment) =>
               comment.comments
                 .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
                 .map((c) => (
                   <div
-                    class="card bg-grey rounded-5 border-dark mb-4 shadow-sm"
+                    class="card bg-grey rounded-5 border-dark my-4 shadow"
                     key={c._id}
                   >
                     <div class="card-body">
@@ -183,12 +222,17 @@ export default function Post(props) {
                       </h6>
                       <p class="card-text fs-7">{c.comment}</p>
                       <p className="card-text text-muted fs-8">
-                        at {new Date(c.createdAt).toLocaleString()}
+                        on{" "}
+                        {new Date(c.createdAt).toLocaleDateString(
+                          "en-US",
+                          options
+                        )}
                       </p>
                     </div>
                   </div>
                 ))
             )}
+          </div>
         </div>
       </div>
     </>

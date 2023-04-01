@@ -52,13 +52,13 @@ export default function CreatePost(props) {
               Share your thoughts or ask for any answers!
             </label>
             <textarea
-              className="form-control rounded-4 border-0 shadow text-white text-dm"
+              className="form-control rounded-4 border-0 shadow text-white text-dm bg-grey"
               id="exampleFormControlTextarea1"
-              rows="4"
-              placeholder="Your Message! ✨"
+              rows="5"
+              placeholder="Your Message!"
               value={text}
               onChange={handleFormChange}
-              style={{ backgroundColor: "#1d1d1d", resize: "none" }}
+              style={{ resize: "none" }}
             ></textarea>
             <Button
               auto
