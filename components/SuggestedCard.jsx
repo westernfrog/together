@@ -33,7 +33,7 @@ export default function SuggestedCard(props) {
 
   useEffect(() => {
     fetchData();
-  }, [username, numPosts]);
+  }, [username, numPosts, fetchData]);
 
   useEffect(() => {
     async function fetchUsers() {
