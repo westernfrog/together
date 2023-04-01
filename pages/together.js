@@ -93,7 +93,7 @@ export default function Together() {
         </div>
       )}
       <div className="row d-flex justify-content-between">
-        <div className="col-md-8">
+        <div className="col-md-8 mt-2 mt-lg-4">
           {userData && (
             <CreatePost
               name={userData?.name?.split(" ")[0]}

@@ -5,7 +5,7 @@ export default function Header(props) {
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg navbar-dark py-2 border-bottom border-dark sticky-top"
+        className="container navbar navbar-expand-lg navbar-dark py-2 border-bottom border-dark fixed-top"
         style={{ backgroundColor: "#111" }}
       >
         <div className="container-fluid">

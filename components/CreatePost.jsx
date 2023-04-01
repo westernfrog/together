@@ -40,7 +40,7 @@ export default function CreatePost(props) {
   return (
     <>
       <div className="border-bottom border-dark">
-        <div className="my-4 py-3">
+        <div className="mt-5 mb-3 pb-4 pt-5">
           <h2 className="text-dm fw-bold text-shadow-3">
             Hello, {props.name} 😍
           </h2>

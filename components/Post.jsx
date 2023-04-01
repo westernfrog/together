@@ -12,6 +12,8 @@ export default function Post(props) {
 
   const username = userData.username;
 
+  const hasComments = posts.map((post) => post.comments.length > 0);
+
   useEffect(() => {
     async function fetchPosts() {
       const postRes = await fetch("/api/posts");
@@ -103,9 +105,6 @@ export default function Post(props) {
     year: "numeric",
   };
 
-  console.log(posts.map((post) => post.comments.length > 0));
-
-  const hasComments = posts.map((post) => post.comments.length > 0);
   return (
     <>
       <div class="card my-5 bg-grey rounded-4" key={props.key}>
@@ -152,7 +151,6 @@ export default function Post(props) {
         <div className="card-footer p-3 p-lg-4">
           <div className="d-flex align-items-center justify-content-between">
             <p>Comments 📭</p>
-
             {hasComments[props.index] ? (
               <Button
                 auto
