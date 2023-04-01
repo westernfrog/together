@@ -111,8 +111,7 @@ export default function Post(props) {
               auto
               light
               size={"lg"}
-              className="px-0"
-              color={"secondary"}
+              className="pe-0"
               onPress={() => {
                 props.handleLike(props.id, props.likes);
                 handleRefresh();
