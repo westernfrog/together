@@ -1,7 +1,21 @@
 import { Button, Grid } from "@nextui-org/react";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Overview(params) {
+  const router = useRouter();
+
+  const handleLogin = async () => {
+    router.push({
+      pathname: "/login",
+    });
+  };
+
+  const handleSignUp = async () => {
+    router.push({
+      pathname: "/signup",
+    });
+  };
+
   return (
     <>
       <div className="row">
@@ -17,26 +31,13 @@ export default function Overview(params) {
             </p>
             <div className="d-flex gap-3 text-dm">
               <Grid>
-                <Button color="secondary" auto flat>
-                  <Link
-                    href={"/signup"}
-                    className="text-decoration-none shadow"
-                    style={{ color: "inherit" }}
-                  >
-                    Register
-                  </Link>
+                <Button color="secondary" auto flat onPress={handleSignUp}>
+                  Register
                 </Button>
               </Grid>
-
               <Grid>
-                <Button color="secondary" auto flat>
-                  <Link
-                    href={"/login"}
-                    className="text-decoration-none shadow"
-                    style={{ color: "inherit" }}
-                  >
-                    Login
-                  </Link>
+                <Button color="secondary" auto flat onPress={handleLogin}>
+                  Login
                 </Button>
               </Grid>
             </div>

@@ -1,4 +1,4 @@
-import { Button, Checkbox, Text, Row } from "@nextui-org/react";
+import { Button, Checkbox, Text, Row, Loading } from "@nextui-org/react";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -10,6 +10,7 @@ export default function Login() {
   const [usernameError, setUserNameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
 
   var paswdRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{5,15}$/;
 
@@ -38,6 +39,7 @@ export default function Login() {
 
         setUserName("");
         setPassword("");
+        setSuccess(true);
 
         if (response.success) {
           localStorage.setItem("token", response.token);
@@ -139,7 +141,11 @@ export default function Login() {
               className="w-100 text-dm"
               onPress={handleSubmit}
             >
-              Login
+              {success ? (
+                <Loading type="points-opacity" color="currentColor" size="sm" />
+              ) : (
+                <>Login</>
+              )}
             </Button>
           </form>
         </div>

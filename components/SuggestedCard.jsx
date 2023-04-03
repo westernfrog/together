@@ -1,4 +1,4 @@
-import { Button, User } from "@nextui-org/react";
+import { Button, Loading, User } from "@nextui-org/react";
 import { useState, useEffect } from "react";
 import jwt from "jsonwebtoken";
 import { GetUserName } from "./GetUserName";
@@ -9,6 +9,7 @@ export default function SuggestedCard(props) {
   const [currentUser, setCurrentUser] = useState(null);
   const [userData, setUserData] = useState(null);
   const [numPosts, setNumPosts] = useState(0);
+  const [loadingStates, setLoadingStates] = useState({});
 
   const username = data.username;
 
@@ -23,6 +24,7 @@ export default function SuggestedCard(props) {
         body: JSON.stringify(data),
       });
       const response = await res.json();
+
       if (res.status === 200) {
         setUserData(response);
       } else {
@@ -58,6 +60,11 @@ export default function SuggestedCard(props) {
 
   const handleFollow = async (username) => {
     if (currentUser) {
+      setLoadingStates((prevLoadingStates) => ({
+        ...prevLoadingStates,
+        [username]: true,
+      }));
+
       const data = { username: currentUser.username };
       const res = await fetch(`/api/follow/${username}`, {
         method: "PUT",
@@ -76,6 +83,11 @@ export default function SuggestedCard(props) {
             : user
         )
       );
+
+      setLoadingStates((prevLoadingStates) => ({
+        ...prevLoadingStates,
+        [username]: false,
+      }));
     }
   };
 
@@ -117,7 +129,15 @@ export default function SuggestedCard(props) {
                     className="w-lg-100"
                     onPress={() => handleFollow(user.username)}
                   >
-                    Follow
+                    {loadingStates[user.username] ? (
+                      <Loading
+                        type="points-opacity"
+                        color="currentColor"
+                        size="sm"
+                      />
+                    ) : (
+                      <>Follow</>
+                    )}
                   </Button>
                 )}
                 {currentUser && isFollowingUser(user.username) && (
@@ -129,7 +149,15 @@ export default function SuggestedCard(props) {
                     className="w-lg-100"
                     onPress={() => handleFollow(user.username)}
                   >
-                    Following
+                    {loadingStates[user.username] ? (
+                      <Loading
+                        type="points-opacity"
+                        color="currentColor"
+                        size="sm"
+                      />
+                    ) : (
+                      <>Following</>
+                    )}
                   </Button>
                 )}
               </div>

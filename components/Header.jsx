@@ -77,6 +77,11 @@ export default function Header(props) {
                     color="secondary"
                     aria-label="User Actions"
                     className="text-dm"
+                    onAction={(key) => {
+                      if (key === "logout") {
+                        props.logout();
+                      }
+                    }}
                   >
                     <Dropdown.Item
                       key="profile"
@@ -90,7 +95,7 @@ export default function Header(props) {
                         {props.email}...
                       </Text>
                     </Dropdown.Item>
-                    <Dropdown.Item key="settings" withDivider>
+                    <Dropdown.Item key="account" withDivider>
                       <Link
                         href={"/profile"}
                         className="text-decoration-none"
@@ -99,22 +104,11 @@ export default function Header(props) {
                         My Account
                       </Link>
                     </Dropdown.Item>
-                    <Dropdown.Item key="team_settings">
-                      <Link
-                        href={"/about"}
-                        className="text-decoration-none"
-                        style={{ color: "inherit" }}
-                      >
-                        About <span className="text-dancing">Together</span>
-                      </Link>
+                    <Dropdown.Item key="about">
+                      About <span className="text-dancing">Together</span>
                     </Dropdown.Item>
-                    <Dropdown.Item
-                      key="logout"
-                      color="error"
-                      withDivider
-                      textValue=""
-                    >
-                      <span onClick={props.logout}>Log Out</span>
+                    <Dropdown.Item key="logout" color="error" withDivider>
+                      Log Out
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
