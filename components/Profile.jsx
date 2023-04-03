@@ -37,14 +37,13 @@ export default function Profile(params) {
         <div className="card-body shadow text-dm">
           <Popover>
             <Popover.Trigger>
-              <h5 className="mb-0">
-                <User
-                  as="button"
-                  text={user.name}
-                  name={user.name}
-                  description={user.username}
-                />
-              </h5>
+              <User
+                as="button"
+                text={user.name}
+                name={user.name}
+                description={user.username}
+                color={"gradient"}
+              />
             </Popover.Trigger>
             <Popover.Content css={{ px: "$4", py: "$2" }} className="bg-dark">
               <Grid.Container
@@ -60,6 +59,7 @@ export default function Profile(params) {
                   name={user.name}
                   description={user.username}
                   css={{ px: 0 }}
+                  color={"gradient"}
                   className="pb-2"
                 />
 
