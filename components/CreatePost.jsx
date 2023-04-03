@@ -126,7 +126,7 @@ export default function CreatePost(props) {
                   auto
                   flat
                   color={"secondary"}
-                  className="my-2 text-dm"
+                  className="my-3 text-dm"
                   onPress={handleSubmit}
                 >
                   Post! 📩
