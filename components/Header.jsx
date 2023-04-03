@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { Dropdown, Text } from "@nextui-org/react";
+import { useRouter } from "next/router";
 
 export default function Header(props) {
+  const router = useRouter();
   return (
     <>
       <nav
@@ -80,6 +82,18 @@ export default function Header(props) {
                     onAction={(key) => {
                       if (key === "logout") {
                         props.logout();
+                      } else if (key === "about") {
+                        router.push({
+                          pathname: "/about",
+                        });
+                      } else if (key === "account") {
+                        router.push({
+                          pathname: "/profile",
+                        });
+                      } else {
+                        router.push({
+                          pathname: "/together",
+                        });
                       }
                     }}
                   >
@@ -96,13 +110,7 @@ export default function Header(props) {
                       </Text>
                     </Dropdown.Item>
                     <Dropdown.Item key="account" withDivider>
-                      <Link
-                        href={"/profile"}
-                        className="text-decoration-none"
-                        style={{ color: "inherit" }}
-                      >
-                        My Account
-                      </Link>
+                      My Account
                     </Dropdown.Item>
                     <Dropdown.Item key="about">
                       About <span className="text-dancing">Together</span>
