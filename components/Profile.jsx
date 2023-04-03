@@ -37,7 +37,7 @@ export default function Profile(params) {
         <div class="card-body shadow text-dm">
           <Popover>
             <Popover.Trigger>
-              <h5>
+              <h5 className="mb-0">
                 <User
                   as="button"
                   text={user.name}
