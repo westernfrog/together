@@ -71,7 +71,8 @@ export default function Profile(params) {
                       css={{ mt: "$1" }}
                       color="#888888"
                     >
-                      Full-stack developer, @getnextui lover she/her 🎉
+                      Temporary not changable description, will allow users to
+                      create custom desc in future, lover she/her 🎉
                     </Text>
                   </Grid>
                 </Grid.Container>
