@@ -58,16 +58,9 @@ export default function CreatePost(props) {
             <div className="d-flex align-items-start justify-content-between gap-2 my-2">
               <Popover>
                 <Popover.Trigger>
-                  <Avatar
-                    text={userProfile?.name}
-                    size="lg"
-                    color={"gradient"}
-                  />
+                  <Avatar text={userProfile?.name} size="lg" />
                 </Popover.Trigger>
-                <Popover.Content
-                  css={{ px: "$4", py: "$2" }}
-                  className="bg-dark"
-                >
+                <Popover.Content css={{ px: "$4", py: "$2" }}>
                   <Grid.Container
                     className="text-dm"
                     css={{

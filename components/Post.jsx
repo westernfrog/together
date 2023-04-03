@@ -222,7 +222,7 @@ export default function Post(props) {
                   .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
                   .map((c) => (
                     <div
-                      className={`card rounded-5 mt-4 shadow bg-dark ${
+                      className={`card rounded-5 mt-4 shadow bg-grey ${
                         c.username === userData.username
                           ? "border-success"
                           : "border-dark"

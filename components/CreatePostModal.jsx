@@ -59,25 +59,22 @@ export default function CreatePostModal(props) {
         id="staticBackdrop"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
         <div class="modal-dialog modal-dialog-centered">
-          <div
-            class="modal-content text-dm rounded-5"
-            style={{ backgroundColor: "#111" }}
-          >
+          <div class="modal-content text-dm rounded-5 border-dark bg-grey">
             <div class="modal-header border-0">
               <p class="modal-title" id="staticBackdropLabel">
                 Share your thoughts here!
               </p>
-              <button type="button" class="btn" data-bs-dismiss="modal">
+              <button type="button" class="btn px-0" data-bs-dismiss="modal">
                 <i className="fa-solid fa-xmark text-white"></i>
               </button>
             </div>
             <div class="modal-body">
-              <div className="mt-3 mb-5">
+              <div className="mb-5">
                 <h2 className="text-dm fw-bold text-shadow-3">
                   Hello, {props.name} 😍
                 </h2>
@@ -89,7 +86,7 @@ export default function CreatePostModal(props) {
                     Share your thoughts or ask for any answers!
                   </label>
                   <textarea
-                    className="form-control rounded-4 border-purple shadow-sm text-white text-dm bg-grey"
+                    className="form-control rounded-4 border-purple shadow text-white text-dm bg-grey"
                     id="exampleFormControlTextarea1"
                     rows="5"
                     placeholder="Your Message!"
