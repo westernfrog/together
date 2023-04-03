@@ -67,14 +67,14 @@ export default function Login() {
     <>
       <main className="col-md-4 mt-5 mx-auto">
         <div className="d-flex align-items-center justify-content-between">
-          <form className="my-5 py-5 text-white w-100">
+          <form className="my-5 py-5 text-light w-100">
             <h1 className="display-3 mb-3 lh-1 text-shadow-3">Welcome Back!</h1>
             <h1 className="h4 mb-3 text-shadow-3">Please sign in</h1>
 
             <div className="form-floating text-dm">
               <input
                 type="text"
-                className="form-control rounded-4 border border-dark bg-transparent text-white"
+                className="form-control rounded-4 border border-dark bg-transparent text-light"
                 id="floatingInput"
                 placeholder="name@example.com"
                 name="username"
@@ -95,7 +95,7 @@ export default function Login() {
             <div className="form-floating mt-2 text-dm">
               <input
                 type="password"
-                className="form-control rounded-4 border border-dark bg-transparent text-white"
+                className="form-control rounded-4 border border-dark bg-transparent text-light"
                 id="floatingPassword"
                 placeholder="Password"
                 name="password"
@@ -126,7 +126,7 @@ export default function Login() {
                 <Text size={14}>
                   <Link
                     href={"/signup"}
-                    className="text-decoration-none text-white"
+                    className="text-decoration-none text-light"
                   >
                     Create an account!
                   </Link>

@@ -55,7 +55,7 @@ export default function CreatePostModal(props) {
       </div>
 
       <div
-        class="modal fade d-lg-none"
+        className="modal fade d-lg-none"
         id="staticBackdrop"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
@@ -63,17 +63,21 @@ export default function CreatePostModal(props) {
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content text-dm rounded-5 border-dark bg-grey">
-            <div class="modal-header border-0">
-              <p class="modal-title" id="staticBackdropLabel">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content text-dm rounded-5 border-dark bg-grey">
+            <div className="modal-header border-0">
+              <p className="modal-title" id="staticBackdropLabel">
                 Share your thoughts here!
               </p>
-              <button type="button" class="btn px-0" data-bs-dismiss="modal">
-                <i className="fa-solid fa-xmark text-white"></i>
+              <button
+                type="button"
+                className="btn px-0"
+                data-bs-dismiss="modal"
+              >
+                <i className="fa-solid fa-xmark text-light"></i>
               </button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <div className="mb-5">
                 <h2 className="text-dm fw-bold text-shadow-3">
                   Hello, {props.name} 😍
@@ -86,7 +90,7 @@ export default function CreatePostModal(props) {
                     Share your thoughts or ask for any answers!
                   </label>
                   <textarea
-                    className="form-control rounded-4 border-purple shadow text-white text-dm bg-grey"
+                    className="form-control rounded-4 border-purple shadow text-light text-dm bg-grey"
                     id="exampleFormControlTextarea1"
                     rows="5"
                     placeholder="Your Message!"

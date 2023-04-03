@@ -121,7 +121,9 @@ export default function Post(props) {
             <div className="card-title d-flex align-items-center justify-content-between">
               <User
                 text={props.name}
-                name={props.username === userData.username ? "You" : props.name}
+                name={
+                  props.username === userData.username ? "You ✨" : props.name
+                }
                 description={props.username}
                 className="ps-0"
               />
@@ -141,7 +143,7 @@ export default function Post(props) {
                     className={`fa-solid fa-heart ${
                       props.likes.includes(username)
                         ? "text-danger"
-                        : "text-white"
+                        : "text-light"
                     }`}
                   ></i>
                 </Button>
@@ -149,7 +151,7 @@ export default function Post(props) {
                   className={`fw-bold fs-8 text-center ${
                     props.likes.includes(username)
                       ? "text-danger"
-                      : "text-white"
+                      : "text-light"
                   }`}
                 >
                   {props.likes.length}
@@ -196,7 +198,7 @@ export default function Post(props) {
               <div className="input-group">
                 <input
                   type="text"
-                  className="form-control bg-grey border-dark rounded-4 text-white text-dm"
+                  className="form-control bg-grey border-dark rounded-4 text-light text-dm"
                   placeholder="Comment here.."
                   aria-label="Username"
                   aria-describedby="basic-addon1"
@@ -233,7 +235,9 @@ export default function Post(props) {
                         <User
                           size={"sm"}
                           color={"gradient"}
-                          name={c.author === userData.name ? "You" : c.author}
+                          name={
+                            c.author === userData.name ? "You ✨" : c.author
+                          }
                           description={c.username}
                           className="ps-0"
                         />

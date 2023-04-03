@@ -108,7 +108,7 @@ export default function CreatePost(props) {
               </Popover>
               <div className="w-100">
                 <textarea
-                  className="form-control rounded-4 border-purple shadow-sm text-white text-dm bg-grey"
+                  className="form-control rounded-4 border-purple shadow-sm text-light text-dm bg-grey"
                   id="exampleFormControlTextarea1"
                   rows="5"
                   placeholder="Your Message!"

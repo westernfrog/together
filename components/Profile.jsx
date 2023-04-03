@@ -33,8 +33,8 @@ export default function Profile(params) {
 
   return (
     <>
-      <div class="card rounded-5 mt-5 mb-3 border-warning bg-grey d-lg-none">
-        <div class="card-body shadow text-dm">
+      <div className="card rounded-5 mt-5 mb-3 border-warning bg-grey d-lg-none">
+        <div className="card-body shadow text-dm">
           <Popover>
             <Popover.Trigger>
               <h5 className="mb-0">

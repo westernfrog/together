@@ -91,7 +91,7 @@ export default function SignUp(params) {
             <div className="form-floating text-dm">
               <input
                 type="text"
-                className="form-control rounded-4 text-white border border-dark bg-transparent"
+                className="form-control rounded-4 text-light border border-dark bg-transparent"
                 id="floatingName"
                 placeholder="Name"
                 name="name"
@@ -113,7 +113,7 @@ export default function SignUp(params) {
             <div className="form-floating text-dm my-2">
               <input
                 type="text"
-                className="form-control rounded-4 text-white border border-dark bg-transparent"
+                className="form-control rounded-4 text-light border border-dark bg-transparent"
                 id="floatinguserName"
                 placeholder="Username"
                 name="username"
@@ -135,7 +135,7 @@ export default function SignUp(params) {
             <div className="form-floating text-dm">
               <input
                 type="email"
-                className="form-control rounded-4 text-white border border-dark bg-transparent"
+                className="form-control rounded-4 text-light border border-dark bg-transparent"
                 id="floatingInput"
                 placeholder="name@example.com"
                 name="email"
@@ -157,7 +157,7 @@ export default function SignUp(params) {
             <div className="form-floating text-dm my-2">
               <input
                 type="password"
-                className="form-control rounded-4 text-white border border-dark bg-transparent"
+                className="form-control rounded-4 text-light border border-dark bg-transparent"
                 id="floatingPassword"
                 placeholder="Password"
                 name="password"

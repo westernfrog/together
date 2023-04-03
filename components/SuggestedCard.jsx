@@ -102,7 +102,7 @@ export default function SuggestedCard(props) {
     <>
       {users.map((user, index) => (
         <div
-          className="card my-4 bg-grey text-white text-dm rounded-5 shadow-sm border-dark"
+          className="card my-4 bg-grey text-light text-dm rounded-5 shadow-sm border-dark"
           key={index}
         >
           <div className="card-body">
