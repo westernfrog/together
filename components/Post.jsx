@@ -53,11 +53,12 @@ export default function Post(props) {
     const commentValue = commentValues.find(
       (commentValue) => commentValue.postId === postId
     );
-    const { value } = commentValue;
-
-    if (value.trim() === "") {
+    if (commentValue.length > 0) {
+      return commentValue;
+    } else if (commentValue.length === 0) {
       return;
     }
+    const { value } = commentValue;
 
     const response = await fetch("/api/comment", {
       method: "POST",
@@ -108,7 +109,10 @@ export default function Post(props) {
   return (
     <>
       {posts ? (
-        <div className="card my-5 bg-grey rounded-4" key={props.index}>
+        <div
+          className="card bg-grey rounded-4 mb-5 mt-0 mt-lg-5"
+          key={props.index}
+        >
           <div className="card-body px-3 px-lg-4">
             <h5 className="card-title d-flex align-items-center justify-content-between">
               <User
@@ -150,7 +154,7 @@ export default function Post(props) {
               {new Date(props.createdAt).toLocaleDateString("en-US", options)}
             </p>
           </div>
-          <div className="card-footer p-3 p-lg-4">
+          <div className="card-footer p-3 p-lg-4 my-3">
             <div className="d-flex align-items-center justify-content-between">
               <p>Comments 📭</p>
               {hasComments[props.index] ? (
@@ -178,7 +182,7 @@ export default function Post(props) {
                 handleCommentSubmit(props.id);
                 handleRefresh();
               }}
-              className="d-flex align-items-center gap-3 mb-3 w-100"
+              className="d-flex align-items-center gap-3 w-100"
             >
               <div className="input-group">
                 <input
@@ -209,7 +213,7 @@ export default function Post(props) {
                   .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
                   .map((c) => (
                     <div
-                      className="card bg-grey rounded-5 border-dark my-4 shadow"
+                      className="card bg-dark rounded-5 border-dark mt-4 shadow"
                       key={c._id}
                     >
                       <div className="card-body">

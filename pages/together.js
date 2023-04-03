@@ -1,18 +1,43 @@
 import { GetUserName } from "@/components/GetUserName";
 import CreatePost from "@/components/CreatePost";
 import Suggested from "@/components/Suggested";
-import { Button, Grid } from "@nextui-org/react";
+import { Button, Grid, User, Popover, Spacer, Text } from "@nextui-org/react";
 import Post from "@/components/Post";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import CreatePostModal from "@/components/CreatePostModal";
 
 export default function Together() {
   const router = useRouter();
-  const userData = GetUserName();
+  const user = GetUserName();
   const [posts, setPosts] = useState([]);
   const [numPosts, setNumPosts] = useState(0);
+  const [userData, setUserData] = useState(null);
 
-  const username = userData.username;
+  const username = user.username;
+
+  const fetchData = async () => {
+    if (username) {
+      const data = { username };
+      const res = await fetch("/api/profile", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const response = await res.json();
+      if (res.status === 200) {
+        setUserData(response); // Store the user data in the state variable
+      } else {
+        setUserData(null);
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [username]);
 
   useEffect(() => {
     async function fetchPosts() {
@@ -78,7 +103,7 @@ export default function Together() {
 
   return (
     <>
-      {!userData && (
+      {!user && (
         <div className="d-flex align-items-center justify-content-center vh-100">
           <div className="col-md-6">
             <p className="display-1">
@@ -100,15 +125,100 @@ export default function Together() {
         </div>
       )}
       <div className="row d-flex justify-content-between">
-        {userData && (
-          <div className="col-md-8 mt-2 mt-lg-4">
+        {user && (
+          <div className="col-md-8 mt-5 mt-lg-4">
             <CreatePost
-              name={userData?.name?.split(" ")[0]}
+              name={user?.name?.split(" ")[0]}
               setNumPosts={setNumPosts}
               username={username}
               numPosts={numPosts + 1}
             />
+            <div class="card rounded-5 mt-5 mb-3 border-dark bg-grey d-lg-none">
+              <div class="card-body shadow text-dm">
+                <Popover>
+                  <Popover.Trigger>
+                    <User
+                      as="button"
+                      text={user.name}
+                      name={user.name}
+                      description={user.username}
+                    />
+                  </Popover.Trigger>
+                  <Popover.Content
+                    css={{ px: "$4", py: "$2" }}
+                    className="bg-dark"
+                  >
+                    <Grid.Container
+                      className="text-dm"
+                      css={{
+                        mw: "270px",
+                        borderRadius: "$lg",
+                        padding: "$sm",
+                      }}
+                    >
+                      <User
+                        text={user.name}
+                        name={user.name}
+                        description={user.username}
+                        css={{ px: 0 }}
+                        className="pb-2"
+                      />
 
+                      <Grid.Container>
+                        <Grid xs={12}>
+                          <Text
+                            className="user-twitter-card__text"
+                            size={14}
+                            css={{ mt: "$1" }}
+                            color="#888888"
+                          >
+                            Full-stack developer, @getnextui lover she/her 🎉
+                          </Text>
+                        </Grid>
+                      </Grid.Container>
+
+                      <Grid.Container className="d-flex align-items-center justify-content-between">
+                        <Text
+                          className="user-twitter-card__text"
+                          size={14}
+                          color="#888888"
+                        >
+                          <Text
+                            b
+                            color="foreground"
+                            className="user-twitter-card__text"
+                            size={14}
+                          >
+                            {userData?.followers?.length}{" "}
+                          </Text>
+                          Followers
+                        </Text>
+
+                        <Text color="#888888" size={14}>
+                          |
+                        </Text>
+
+                        <Text
+                          className="user-twitter-card__text"
+                          size={14}
+                          color="#888888"
+                        >
+                          <Text
+                            b
+                            color="foreground"
+                            className="user-twitter-card__text"
+                            size={14}
+                          >
+                            {userData?.following?.length}{" "}
+                          </Text>
+                          Following
+                        </Text>
+                      </Grid.Container>
+                    </Grid.Container>
+                  </Popover.Content>
+                </Popover>
+              </div>
+            </div>
             {posts.map((post, index) => (
               <Post
                 key={index}
@@ -126,10 +236,20 @@ export default function Together() {
         )}
         <div className="col-md-4">
           <div className="position-sticky" style={{ top: "8rem" }}>
-            {userData && <Suggested username={userData.username} />}
+            {user && <Suggested username={user.username} />}
           </div>
         </div>
       </div>
+      {user ? (
+        <CreatePostModal
+          name={user?.name?.split(" ")[0]}
+          setNumPosts={setNumPosts}
+          username={username}
+          numPosts={numPosts + 1}
+        />
+      ) : (
+        <>kaka</>
+      )}
     </>
   );
 }

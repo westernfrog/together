@@ -15,7 +15,7 @@ export default function Header(props) {
             Together
           </Link>
           <div>
-            <Link href="/feed">
+            <Link href="/explore">
               <button
                 className="navbar-toggler me-1 py-2 rounded-4 shadow-sm btn-shrink"
                 type="button"
@@ -42,7 +42,7 @@ export default function Header(props) {
           >
             <ul className="navbar-nav mb-2 mb-lg-0 ms-auto d-flex align-items-lg-center">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" href="">
+                <Link className="nav-link active" aria-current="page" href="/">
                   <div className="row">
                     <div className="col-2 me-0 me-lg-3">🏡</div>
                     <div className="col">Home</div>
