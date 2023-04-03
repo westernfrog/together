@@ -117,7 +117,7 @@ export default function SuggestedCard(props) {
                   className="ps-0"
                 />
               </div>
-              <div className="col-sm mt-3 mt-lg-0 d-flex align-items-center justify-content-end">
+              <div className="col-sm mt-2 mt-lg-0 d-flex align-items-center justify-content-md-end">
                 {currentUser && !isFollowingUser(user.username) && (
                   <Button
                     auto
@@ -125,7 +125,6 @@ export default function SuggestedCard(props) {
                     rounded
                     color={"secondary"}
                     size={"sm"}
-                    className="w-lg-100"
                     onPress={() => handleFollow(user.username)}
                   >
                     {loadingStates[user.username] ? (
@@ -145,7 +144,6 @@ export default function SuggestedCard(props) {
                     flat
                     color={"secondary"}
                     size={"sm"}
-                    className="w-lg-100"
                     onPress={() => handleFollow(user.username)}
                   >
                     {loadingStates[user.username] ? (

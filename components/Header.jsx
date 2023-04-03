@@ -65,9 +65,9 @@ export default function Header(props) {
               <li className="nav-item dropdown ms-0 ms-lg-5">
                 <Dropdown placement="bottom-right">
                   <Dropdown.Trigger>
-                    <span className="nav-link dropdown-toggle pt-1 pt-lg-3 d-flex align-items-center">
+                    <span className="nav-link">
                       <div className="row">
-                        <div className="col-2 me-4 me-lg-3">😃</div>
+                        <div className="col-2 me-0 me-lg-3">😃</div>
                         <div className="col">Profile</div>
                       </div>
                     </span>
