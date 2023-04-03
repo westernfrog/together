@@ -119,9 +119,9 @@ export default function Post(props) {
                 text={props.name}
                 name={props.name}
                 description={props.username}
-                color={"gradient"}
                 className="ps-0"
               />
+
               <div className="">
                 <Button
                   auto
@@ -216,17 +216,15 @@ export default function Post(props) {
                       className="card bg-dark rounded-5 border-dark mt-4 shadow"
                       key={c._id}
                     >
-                      <div className="card-body">
-                        <h6 className="card-title">
-                          <User
-                            size={"sm"}
-                            color={"gradient"}
-                            name={c.author}
-                            description={c.username}
-                            className="ps-0"
-                          />
-                        </h6>
-                        <p className="card-text fs-7">{c.comment}</p>
+                      <div className="card-body text-dm">
+                        <User
+                          size={"sm"}
+                          color={"gradient"}
+                          name={c.author}
+                          description={c.username}
+                          className="ps-0"
+                        />
+                        <p className="card-text fs-7 my-3">{c.comment}</p>
                         <p className="card-text text-muted fs-8">
                           on{" "}
                           {new Date(c.createdAt).toLocaleDateString(
