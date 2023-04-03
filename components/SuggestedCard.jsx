@@ -121,7 +121,8 @@ export default function SuggestedCard(props) {
                 {currentUser && !isFollowingUser(user.username) && (
                   <Button
                     auto
-                    ghost
+                    flat
+                    rounded
                     color={"secondary"}
                     size={"sm"}
                     className="w-lg-100"

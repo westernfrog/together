@@ -195,7 +195,7 @@ export default function Post(props) {
               }}
               className="d-flex align-items-center gap-3 w-100"
             >
-              <div className="input-group">
+              <div className="input-group input-group-sm">
                 <input
                   type="text"
                   className="form-control bg-grey border-dark rounded-4 text-light text-dm"
@@ -213,7 +213,13 @@ export default function Post(props) {
                   style={{ boxShadow: "none" }}
                 />
               </div>
-              <Button auto flat type="submit" onPress={handleRefresh}>
+              <Button
+                auto
+                flat
+                type="submit"
+                size={"sm"}
+                onPress={handleRefresh}
+              >
                 📫
               </Button>
             </form>

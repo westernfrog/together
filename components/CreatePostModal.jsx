@@ -66,9 +66,12 @@ export default function CreatePostModal(props) {
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content text-dm rounded-5 border-dark bg-grey">
             <div className="modal-header border-0">
-              <p className="modal-title" id="staticBackdropLabel">
-                Share your thoughts here!
-              </p>
+              <h4
+                className="modal-title text-dm text-shadow-3"
+                id="staticBackdropLabel"
+              >
+                Hello, {props.name} 😍
+              </h4>
               <button
                 type="button"
                 className="btn px-0"
@@ -79,10 +82,7 @@ export default function CreatePostModal(props) {
             </div>
             <div className="modal-body">
               <div className="mb-5">
-                <h2 className="text-dm fw-bold text-shadow-3">
-                  Hello, {props.name} 😍
-                </h2>
-                <div className="mt-3">
+                <div className="">
                   <label
                     htmlFor="exampleFormControlTextarea1"
                     className="form-label text-dm fs-6"

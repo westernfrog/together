@@ -83,7 +83,9 @@ export default function CreatePost(props) {
                       <Grid xs={12}>
                         <Text size={14} css={{ mt: "$1" }} color="#888888">
                           Temporary not changable description, will allow users
-                          to create custom desc in future, lover she/her 🎉
+                          to create custom desc in future 🎉
+                          <br />
+                          Stay together
                         </Text>
                       </Grid>
                     </Grid.Container>

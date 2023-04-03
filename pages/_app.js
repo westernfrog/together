@@ -49,7 +49,8 @@ export default function App({ Component, pageProps }) {
           <title>Together</title>
           <meta
             name="description"
-            content="Discover and listen to the latest podcasts on PodcastWe. Our platform offers a vast collection of shows covering various topics, from news and entertainment to education and technology. Join our community of podcast lovers and never miss an episode. Download PodcastWe today and start exploring the world of audio content."
+            content="A social media platform to share thoughts and content, with a
+              global chat feature. Made with NEXT!"
           />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link
