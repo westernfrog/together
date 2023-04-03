@@ -106,13 +106,18 @@ export default function Header(props) {
                         {props.email}...
                       </Text>
                     </Dropdown.Item>
-                    <Dropdown.Item key="account" withDivider>
+                    <Dropdown.Item key="account" withDivider textValue="">
                       My Account
                     </Dropdown.Item>
-                    <Dropdown.Item key="about">
+                    <Dropdown.Item key="about" textValue="">
                       About <span className="text-dancing">Together</span>
                     </Dropdown.Item>
-                    <Dropdown.Item key="logout" color="error" withDivider>
+                    <Dropdown.Item
+                      key="logout"
+                      color="error"
+                      withDivider
+                      textValue=""
+                    >
                       Log Out
                     </Dropdown.Item>
                   </Dropdown.Menu>
