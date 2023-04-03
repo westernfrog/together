@@ -95,7 +95,7 @@ a.nav-link {
   border-radius: 20px !important;
 }
 .bg-grey {
-  background-color: #1d1d1d !important;
+  background-color: #191919 !important;
 }
 
 .w-lg-100 {
@@ -106,4 +106,8 @@ a.nav-link {
   .w-lg-100 {
     width: 100%;
   }
+}
+
+.border-purple {
+  border-color: #b583e7 !important;
 }

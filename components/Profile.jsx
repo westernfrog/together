@@ -20,7 +20,7 @@ export default function Profile(params) {
       });
       const response = await res.json();
       if (res.status === 200) {
-        setUserData(response); // Store the user data in the state variable
+        setUserData(response);
       } else {
         setUserData(null);
       }
@@ -33,7 +33,7 @@ export default function Profile(params) {
 
   return (
     <>
-      <div class="card rounded-5 mt-5 mb-3 border-dark bg-grey d-lg-none">
+      <div class="card rounded-5 mt-5 mb-3 border-warning bg-grey d-lg-none">
         <div class="card-body shadow text-dm">
           <Popover>
             <Popover.Trigger>
@@ -65,12 +65,7 @@ export default function Profile(params) {
 
                 <Grid.Container>
                   <Grid xs={12}>
-                    <Text
-                      className="user-twitter-card__text"
-                      size={14}
-                      css={{ mt: "$1" }}
-                      color="#888888"
-                    >
+                    <Text size={14} css={{ mt: "$1" }} color="#888888">
                       Temporary not changable description, will allow users to
                       create custom desc in future, lover she/her 🎉
                     </Text>
@@ -78,17 +73,8 @@ export default function Profile(params) {
                 </Grid.Container>
 
                 <Grid.Container className="d-flex align-items-center justify-content-between">
-                  <Text
-                    className="user-twitter-card__text"
-                    size={14}
-                    color="#888888"
-                  >
-                    <Text
-                      b
-                      color="foreground"
-                      className="user-twitter-card__text"
-                      size={14}
-                    >
+                  <Text size={14} color="#888888">
+                    <Text b color="foreground" size={14}>
                       {userData?.followers?.length}{" "}
                     </Text>
                     Followers
@@ -98,17 +84,8 @@ export default function Profile(params) {
                     |
                   </Text>
 
-                  <Text
-                    className="user-twitter-card__text"
-                    size={14}
-                    color="#888888"
-                  >
-                    <Text
-                      b
-                      color="foreground"
-                      className="user-twitter-card__text"
-                      size={14}
-                    >
+                  <Text size={14} color="#888888">
+                    <Text b color="foreground" size={14}>
                       {userData?.following?.length}{" "}
                     </Text>
                     Following

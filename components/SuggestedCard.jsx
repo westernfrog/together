@@ -109,9 +109,7 @@ export default function SuggestedCard(props) {
             <div className="row">
               <div className="col-sm">
                 <User
-                  squared
-                  bordered
-                  size="lg"
+                  size="md"
                   color={"gradient"}
                   text={user.name}
                   name={user.name}
@@ -123,7 +121,7 @@ export default function SuggestedCard(props) {
                 {currentUser && !isFollowingUser(user.username) && (
                   <Button
                     auto
-                    flat
+                    light
                     color={"secondary"}
                     size={"sm"}
                     className="w-lg-100"

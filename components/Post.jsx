@@ -1,4 +1,4 @@
-import { Button, User, Loading } from "@nextui-org/react";
+import { Button, User, Loading, Spacer } from "@nextui-org/react";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { GetUserName } from "./GetUserName";
@@ -110,18 +110,21 @@ export default function Post(props) {
     <>
       {posts ? (
         <div
-          className="card bg-grey rounded-4 mb-5 mt-0 mt-lg-5"
+          className={`card bg-grey rounded-5 mb-5 mt-0 mt-lg-5 shadow ${
+            props.username === userData.username
+              ? "border-warning"
+              : "border-purple"
+          }`}
           key={props.index}
         >
-          <div className="card-body px-3 px-lg-4">
-            <h5 className="card-title d-flex align-items-center justify-content-between">
+          <div className="card-body px-3 px-lg-4 text-dm">
+            <div className="card-title d-flex align-items-center justify-content-between">
               <User
                 text={props.name}
-                name={props.name}
+                name={props.username === userData.username ? "You" : props.name}
                 description={props.username}
                 className="ps-0"
               />
-
               <div className="">
                 <Button
                   auto
@@ -142,11 +145,17 @@ export default function Post(props) {
                     }`}
                   ></i>
                 </Button>
-                <div className="text-dm fw-bold text-white fs-8 text-center">
+                <div
+                  className={`fw-bold fs-8 text-center ${
+                    props.likes.includes(username)
+                      ? "text-danger"
+                      : "text-white"
+                  }`}
+                >
                   {props.likes.length}
                 </div>
               </div>
-            </h5>
+            </div>
 
             <p className="card-text">{props.text}</p>
             <p className="card-text text-muted fs-8">
@@ -163,14 +172,14 @@ export default function Post(props) {
                   flat
                   color={"secondary"}
                   size={"xs"}
-                  className="text-dm mb-3"
+                  className="mb-3 text-dm"
                   data-bs-toggle="collapse"
                   data-bs-target={`#comments-${props.id}`}
                 >
                   View comments
                 </Button>
               ) : (
-                <Button auto flat disabled size={"xs"} className="text-dm mb-3">
+                <Button auto flat disabled size={"xs"} className="mb-3 text-dm">
                   No comments yet
                 </Button>
               )}
@@ -187,7 +196,7 @@ export default function Post(props) {
               <div className="input-group">
                 <input
                   type="text"
-                  className="form-control bg-grey rounded-4 text-dm text-white"
+                  className="form-control bg-grey border-dark rounded-4 text-white text-dm"
                   placeholder="Comment here.."
                   aria-label="Username"
                   aria-describedby="basic-addon1"
@@ -213,14 +222,18 @@ export default function Post(props) {
                   .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
                   .map((c) => (
                     <div
-                      className="card bg-dark rounded-5 border-dark mt-4 shadow"
+                      className={`card rounded-5 mt-4 shadow bg-dark ${
+                        c.username === userData.username
+                          ? "border-success"
+                          : "border-dark"
+                      }`}
                       key={c._id}
                     >
                       <div className="card-body text-dm">
                         <User
                           size={"sm"}
                           color={"gradient"}
-                          name={c.author}
+                          name={c.author === userData.name ? "You" : c.author}
                           description={c.username}
                           className="ps-0"
                         />
@@ -242,6 +255,7 @@ export default function Post(props) {
       ) : (
         <Loading type="points-opacity" color="currentColor" size="lg" />
       )}
+      <Spacer y={1} />
     </>
   );
 }
