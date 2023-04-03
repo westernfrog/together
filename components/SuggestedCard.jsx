@@ -13,29 +13,29 @@ export default function SuggestedCard(props) {
 
   const username = data.username;
 
-  const fetchData = async () => {
-    if (username) {
-      const data = { username };
-      const res = await fetch("/api/profile", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-      const response = await res.json();
+  useEffect(() => {
+    async function fetchData() {
+      if (username) {
+        const data = { username };
+        const res = await fetch("/api/profile", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+        const response = await res.json();
 
-      if (res.status === 200) {
-        setUserData(response);
-      } else {
-        setUserData(null);
+        if (res.status === 200) {
+          setUserData(response);
+        } else {
+          setUserData(null);
+        }
       }
     }
-  };
 
-  useEffect(() => {
     fetchData();
-  }, [username, numPosts, fetchData]);
+  }, [username, numPosts]);
 
   useEffect(() => {
     async function fetchUsers() {

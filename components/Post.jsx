@@ -1,4 +1,4 @@
-import { Button, User } from "@nextui-org/react";
+import { Button, User, Loading } from "@nextui-org/react";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { GetUserName } from "./GetUserName";
@@ -108,9 +108,9 @@ export default function Post(props) {
   return (
     <>
       {posts ? (
-        <div class="card my-5 bg-grey rounded-4" key={props.key}>
-          <div class="card-body px-3 px-lg-4">
-            <h5 class="card-title d-flex align-items-center justify-content-between">
+        <div className="card my-5 bg-grey rounded-4" key={props.index}>
+          <div className="card-body px-3 px-lg-4">
+            <h5 className="card-title d-flex align-items-center justify-content-between">
               <User
                 text={props.name}
                 name={props.name}
@@ -131,7 +131,7 @@ export default function Post(props) {
                   }}
                 >
                   <i
-                    class={`fa-solid fa-heart ${
+                    className={`fa-solid fa-heart ${
                       props.likes.includes(username)
                         ? "text-danger"
                         : "text-white"
@@ -144,7 +144,7 @@ export default function Post(props) {
               </div>
             </h5>
 
-            <p class="card-text">{props.text}</p>
+            <p className="card-text">{props.text}</p>
             <p className="card-text text-muted fs-8">
               on{" "}
               {new Date(props.createdAt).toLocaleDateString("en-US", options)}
@@ -180,10 +180,10 @@ export default function Post(props) {
               }}
               className="d-flex align-items-center gap-3 mb-3 w-100"
             >
-              <div class="input-group">
+              <div className="input-group">
                 <input
                   type="text"
-                  class="form-control bg-grey rounded-4 text-dm text-white"
+                  className="form-control bg-grey rounded-4 text-dm text-white"
                   placeholder="Comment here.."
                   aria-label="Username"
                   aria-describedby="basic-addon1"
@@ -203,17 +203,17 @@ export default function Post(props) {
               </Button>
             </form>
 
-            <div class="collapse" id={`comments-${props.id}`}>
+            <div className="collapse" id={`comments-${props.id}`}>
               {postComments[props.id]?.map((comment) =>
                 comment.comments
                   .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
                   .map((c) => (
                     <div
-                      class="card bg-grey rounded-5 border-dark my-4 shadow"
+                      className="card bg-grey rounded-5 border-dark my-4 shadow"
                       key={c._id}
                     >
-                      <div class="card-body">
-                        <h6 class="card-title">
+                      <div className="card-body">
+                        <h6 className="card-title">
                           <User
                             size={"sm"}
                             color={"gradient"}
@@ -222,7 +222,7 @@ export default function Post(props) {
                             className="ps-0"
                           />
                         </h6>
-                        <p class="card-text fs-7">{c.comment}</p>
+                        <p className="card-text fs-7">{c.comment}</p>
                         <p className="card-text text-muted fs-8">
                           on{" "}
                           {new Date(c.createdAt).toLocaleDateString(
