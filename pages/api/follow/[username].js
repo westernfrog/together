@@ -15,7 +15,6 @@ export default async function handler(req, res) {
     const userToFollow = await Flutter.findOne({ username });
 
     if (!currentUser.following.includes(userToFollow.username)) {
-      // Follow the user
       currentUser.following.push(userToFollow.username);
       await currentUser.save();
 
@@ -24,7 +23,6 @@ export default async function handler(req, res) {
 
       res.status(200).json({ message: "Followed successfully" });
     } else {
-      // Unfollow the user
       currentUser.following = currentUser.following.filter(
         (followedUser) => followedUser !== userToFollow.username
       );

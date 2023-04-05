@@ -134,15 +134,13 @@ export default function Together() {
           </div>
         </div>
       </div>
-      {user ? (
+      {user && (
         <CreatePostModal
           name={user?.name?.split(" ")[0]}
           setNumPosts={setNumPosts}
           username={username}
           numPosts={numPosts + 1}
         />
-      ) : (
-        <>kaka</>
       )}
     </>
   );

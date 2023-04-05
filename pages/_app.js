@@ -55,7 +55,7 @@ export default function App({ Component, pageProps }) {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link
             rel="icon"
-            href="https://cdn-icons-png.flaticon.com/512/9486/9486240.png"
+            href="https://cdn-icons-png.flaticon.com/512/9985/9985812.png"
           />
         </Head>
         <Script

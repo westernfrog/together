@@ -41,14 +41,14 @@ export default function SuggestedCard(props) {
     async function fetchUsers() {
       const res = await fetch("/api/users");
       const data = await res.json();
-      const filteredUsers = data.filter(
-        (user) => user.username !== currentUser?.username
-      );
+      const filteredUsers = data
+        .filter((user) => user.username !== currentUser?.username)
+        .filter((user) => !userData?.following?.includes(user.username));
       setUsers(filteredUsers);
     }
 
     fetchUsers();
-  }, [currentUser]);
+  }, [currentUser, userData]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
