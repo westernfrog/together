@@ -67,7 +67,7 @@ export default function Profile(params) {
               </div>
               <p class="card-text text-muted">
                 Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                the bulk of the cards content.
               </p>
             </div>
             <div className="card-footer text-dm py-3 p-lg-4">
