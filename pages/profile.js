@@ -93,6 +93,7 @@ export default function Profile(params) {
                               className="px-0"
                             />
                           </div>
+                          <div className="col-3"></div>
                           <div className="col-sm mt-2 mt-lg-0 d-flex align-items-center justify-content-md-end">
                             <Button
                               auto
@@ -143,11 +144,11 @@ export default function Profile(params) {
             </div>
           </div>
         </div>
-        {/* <div className="col-md-4">
+        <div className="col-md-4">
           <div className="position-sticky" style={{ top: "9rem" }}>
-            {user && <Suggested username={user.username} />}
+            {userName && <Suggested username={userName.username} />}
           </div>
-        </div> */}
+        </div>
       </div>
     </>
   );
