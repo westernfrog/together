@@ -39,15 +39,15 @@ export default function Profile(params) {
       <div className="row">
         <Spacer y={3} />
         <div className="col-md-8 mt-0 mt-lg-4">
-          <div class="card bg-grey my-5 border-warning rounded-5">
-            <div class="card-body text-dm py-3 p-lg-4">
-              <div class="card-title">
+          <div className="card bg-grey my-5 border-warning rounded-5">
+            <div className="card-body text-dm py-3 p-lg-4">
+              <div className="card-title">
                 <div className="row d-flex align-items-center justify-content-between">
                   <div className="col-md-6">
                     <User
-                      src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-                      name="Ariana Wattson"
-                      description="UI/UX Designer @Github"
+                      text={userData?.name}
+                      name={userData?.name}
+                      description={username}
                       className="px-0 fs-8"
                     />
                   </div>
@@ -65,20 +65,29 @@ export default function Profile(params) {
                   </div>
                 </div>
               </div>
-              <p class="card-text text-muted">
-                Some quick example text to build on the card title and make up
-                the bulk of the cards content.
-              </p>
             </div>
             <div className="card-footer text-dm py-3 p-lg-4">
               <div className="row d-flex align-items-start justify-content-between">
+                <div className="col-md-6 text-center">
+                  <p className="text-muted">
+                    <span className="fw-bold">
+                      {userData?.followers?.length}
+                    </span>{" "}
+                    Followers 🎉
+                  </p>
+                </div>
+                <div className="col-md-6 text-center">
+                  <p className="text-muted">
+                    <span className="fw-bold">
+                      {userData?.following?.length}
+                    </span>{" "}
+                    Following 🎉
+                  </p>
+                </div>
                 <div
-                  className="col-md-5 overflow-auto"
+                  className="col-md-6 overflow-auto"
                   style={{ height: "280px" }}
                 >
-                  <p className="text-muted">
-                    <span className="fw-bold">4</span> Followers 🎉
-                  </p>
                   {userData?.followers.map((followers, index) => (
                     <div
                       className="card my-4 bg-grey text-light text-dm rounded-5 shadow-sm border-dark"
@@ -88,57 +97,40 @@ export default function Profile(params) {
                         <div className="row">
                           <div className="col-sm">
                             <User
-                              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                              text={followers}
+                              color={"gradient"}
                               name={followers}
                               className="px-0"
                             />
-                          </div>
-                          <div className="col-3"></div>
-                          <div className="col-sm mt-2 mt-lg-0 d-flex align-items-center justify-content-md-end">
-                            <Button
-                              auto
-                              flat
-                              color={"secondary"}
-                              size={"sm"}
-                              className="w-100 mt-2"
-                            >
-                              <>Following</>
-                            </Button>
                           </div>
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className="col-md-5 mt-5 mt-lg-0">
-                  <p className="text-muted">
-                    <span className="fw-bold">4</span> Followers 🎉
-                  </p>
-                  <div className="card my-4 bg-grey text-light text-dm rounded-5 shadow-sm border-dark">
-                    <div className="card-body">
-                      <div className="row">
-                        <div className="col-sm">
-                          <User
-                            src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-                            name="Ariana Wattson"
-                            description="UI/UX Designer @Github"
-                            className="px-0"
-                          />
-                        </div>
-                        <div className="col-sm mt-2 mt-lg-0 d-flex align-items-center justify-content-md-end">
-                          <Button
-                            auto
-                            flat
-                            color={"secondary"}
-                            size={"sm"}
-                            className="w-100 mt-2"
-                          >
-                            <>Following</>
-                          </Button>
+                <div
+                  className="col-md-6 mt-5 mt-lg-0 overflow-auto"
+                  style={{ height: "280px" }}
+                >
+                  {userData?.following.map((following, index) => (
+                    <div
+                      className="card my-4 bg-grey text-light text-dm rounded-5 shadow-sm border-dark"
+                      key={index}
+                    >
+                      <div className="card-body">
+                        <div className="row">
+                          <div className="col-sm">
+                            <User
+                              text={following}
+                              color={"gradient"}
+                              name={following}
+                              className="px-0"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
