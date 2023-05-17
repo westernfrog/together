@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   // Fetch the latest posts and their authors
   const posts = await Post.find()
     .sort("-createdAt")
-    .limit(10)
+    .limit(30)
     .populate("author", "username");
 
   res.status(200).json(posts);
