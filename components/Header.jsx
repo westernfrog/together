@@ -46,7 +46,7 @@ export default function Header(props) {
                   </div>
                 </Link>
               </li>
-              <li className="nav-item mx-0 mx-lg-5">
+              {/* <li className="nav-item mx-0 mx-lg-5">
                 <Link className="nav-link" href="/explore">
                   <div className="row">
                     <div className="col-2 me-0 me-lg-3">🚗</div>
@@ -61,7 +61,7 @@ export default function Header(props) {
                     <div className="col">Search</div>
                   </div>
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item dropdown ms-0 ms-lg-5">
                 <Dropdown placement="bottom-right">
                   <Dropdown.Trigger>
