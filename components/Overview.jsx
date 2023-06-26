@@ -24,7 +24,7 @@ export default function Overview(params) {
           style={{ zIndex: "1000", top: "40%" }}
         >
           <div>
-            <h1 className="display-1 text-shadow-3">Welcome to Together</h1>
+            <h1 className="display-1 text-shadow-3">Welcome to Flutter</h1>
             <p>
               A social media platform to share thoughts and content, with a
               global chat feature.
