@@ -9,7 +9,7 @@ export default function Header(props) {
       <nav className="container navbar navbar-expand-lg navbar-dark py-2 border-bottom border-dark bg-grey fixed-top">
         <div className="container-fluid">
           <Link className="navbar-brand fs-1 text-dancing" href="/together">
-            Together
+            Flutter
           </Link>
           <div>
             <Link href="/explore">
